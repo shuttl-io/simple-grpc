@@ -12,6 +12,7 @@ setuptools.setup(
     description="A simple way to define gRPC patterns",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    python_requires=">=3.5",
     url="https://github.com/shuttl-io/simple-grpc",
     packages=setuptools.find_packages(),
     classifiers=[

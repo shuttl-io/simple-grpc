@@ -5,9 +5,8 @@ python:
 install:
 - pip install -r requirements.txt
 script:
-  - echo "removed testing to get building worrking"
-# - nosetests -c nose.ci.cfg
-# - pylint simple
+  - nosetests -c nose.ci.cfg
+  - pylint simple
 before_deploy:
 - python3 setup.py sdist bdist_wheel
 deploy:
@@ -18,3 +17,4 @@ deploy:
   on:
     tags: true
   distributions: sdist bdist_wheel
+  skip_existing: true

@@ -1,4 +1,4 @@
-# Simple gRPC
+# Simple gRPC [![Build Status](https://travis-ci.org/shuttl-io/simple-grpc.svg?branch=master)](https://travis-ci.org/shuttl-io/simple-grpc)
 
 A python to implement gRPC based serives easily.
 

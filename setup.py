@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="simple-grpc",
-    version=os.environ.get("SIMPLE_VERSION", "0.0.1"),
+    version=os.environ.get("TRAVIS_TAG", "0.0.1"),
     author="Shuttl, LLC",
     author_email="hello@shuttl.io",
     description="A simple way to define gRPC patterns",

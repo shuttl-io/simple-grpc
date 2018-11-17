@@ -1,12 +1,19 @@
 language: python
 python:
-  - "3.5"
-  - "3.6"
-  #- "3.7"  
-# command to install dependencies
+- '3.5'
+- '3.6'
 install:
-  - pip install -r requirements.txt
-# command to run tests
+- pip install -r requirements.txt
 script:
-  - nosetests -c nose.ci.cfg
-  - pylint simple
+- nosetests -c nose.ci.cfg
+- pylint simple
+before_deploy:
+- python3 setup.py sdist bdist_wheel
+deploy:
+  provider: pypi
+  user: yoseph94
+  password:
+    secure: sEutop1tPo64F1a44C5aXjKTi8pMdrVPjuxNhYp1PPGnLs1Fd5B8vg9HmollGQKJZqhISlSE4VUXlZFHZcg7AySRrwrAEmmoNbmxrA7eb1I6FzoJMJOxxcNpWzHGw47FUSCmUTmxme6MdXXdUevbRyeuznaeyve1+IYXum1bKM4rmbIk+SsCLj2mpRTrmeIx24D4UsnK+7rlbh7ToTrLNBgxR75bKrAok1tK4GFdOEdH6lk+zJ4Ur8Vf7JkvQqHSDswWoLYkodMn+Tu39+00UzPWpaUPZLFkBZm9qC1chlRpMrlRJF/7mBIz+CEADxvP6St4PdvpO6r5tOlK3ezYw0qAv54ZpA5lo7QkYLS0V264r9lSfgsGi4e9Sbay7hQCfYtStpeJ7/c4YFu+BcNuVB5Dy6vBNrRzHg831/1JCW2wEn2aGmXXiggoJylSrOtaarLOOYZXQ4mCecSh/BR1ORj0qK+TRSL6kX295OK49xfMUxWqpFobHKqY92zzRgD3dWVBmo27+0ZujNvJbc8JEa35SwLr6vRjWGzPx1K9UiDS+nizHPQUBbGi8PNUHLKz2/3qOCYapMR3WqMBN8k54xLjqERGBJ296kTKYtCA4GZfio+p+2E2Vd8TF80/UE7jF0fD5t20yT4v6tO3wjDxrXDZ0jiTOv44NzzjBiIu518=
+  on:
+    tags: true
+  distributions: sdist bdist_wheel
